@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>360Viewer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <div>
+            <p class="eyebrow">360° Viewer</p>
+            <h1>360Viewer</h1>
+          </div>
+        </div>
+
+        <div id="drop-zone" class="drop-zone">
+          <p class="drop-title">Drop a folder of images here</p>
+          <p class="drop-subtitle">PNG, JPG, JPEG, or WEBP</p>
+          <button id="browse-folder-btn" type="button">Open folder</button>
+          <input id="folder-input" type="file" accept="image/*" webkitdirectory multiple hidden />
+        </div>
+
+        <label class="search-box" for="search-input">
+          <span>🔎</span>
+          <input id="search-input" type="text" placeholder="Search panoramas" />
+        </label>
+
+        <div class="sidebar-stats">
+          <span id="panorama-count">0 panoramas</span>
+          <span id="selection-indicator">No selection</span>
+        </div>
+
+        <div id="panorama-list" class="panorama-list"></div>
+      </aside>
+
+      <main class="viewer-panel">
+        <div class="toolbar">
+          <div>
+            <p class="eyebrow">Live Viewer</p>
+            <h2 id="viewer-title">Loading...</h2>
+          </div>
+
+          <div class="toolbar-actions">
+            <button id="prev-btn" type="button">◀ Previous</button>
+            <button id="next-btn" type="button">Next ▶</button>
+            <button id="fullscreen-btn" type="button">⛶ Fullscreen</button>
+          </div>
+        </div>
+
+        <div class="viewer-stage">
+          <div id="loading-overlay" class="loading-overlay hidden">
+            <div class="spinner"></div>
+            <p>Loading panorama...</p>
+          </div>
+
+          <div id="viewer-error" class="viewer-error hidden"></div>
+          <div id="panorama" class="panorama-viewer"></div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>
